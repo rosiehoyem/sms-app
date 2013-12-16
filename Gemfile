@@ -28,7 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # CSV upload and Twilio SMS integration
-gem 'paperclip'
+gem 'roo'
 gem 'twilio-ruby'
 gem "validates_phone_number"
 
