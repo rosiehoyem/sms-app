@@ -51,6 +51,7 @@ end
 
 group :test, :development do
   gem "rspec-rails"
+  gem "faker"
   gem "capybara"
   gem "selenium-webdriver"
   gem "better_errors"
