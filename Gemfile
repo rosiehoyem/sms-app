@@ -28,9 +28,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # CSV upload and Twilio SMS integration
-gem 'roo'
 gem 'twilio-ruby'
-gem "validates_phone_number"
+# gem "fastercsv"
+gem 'validates_phone_number'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

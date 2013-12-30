@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20131219045219) do
     t.datetime "updated_at"
   end
 
-  create_table "sms", force: true do |t|
+  create_table "text_messages", force: true do |t|
     t.string   "phone_number"
     t.string   "firstname"
     t.datetime "created_at"
@@ -27,6 +27,6 @@ ActiveRecord::Schema.define(version: 20131219045219) do
     t.integer  "message_id"
   end
 
-  add_index "sms", ["message_id"], name: "index_sms_on_message_id"
+  add_index "text_messages", ["message_id"], name: "index_text_messages_on_message_id"
 
 end

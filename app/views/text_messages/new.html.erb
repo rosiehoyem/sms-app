@@ -1,0 +1,11 @@
+<h1>Send a Message</h1>
+
+Create a new message
+<%= form_tag('/messages/:message_id/text_messages') do %>
+<%= label_tag 'content' %>
+<%= text_field_tag 'content' %>
+<%= submit_tag 'Create Message'  %>
+
+<% end %>
+
+            
