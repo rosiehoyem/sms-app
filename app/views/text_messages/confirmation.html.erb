@@ -1,2 +1,6 @@
-<h1>Sms#confirmation</h1>
-<p>Find me in app/views/sms/confirmation.html.erb</p>
+<h1>Success!</h1>
+<p><%= @message.text_messages.count %> phone numbers have been successfully queued</p>
+
+<p> Message to be send: <%= @message.content %>
+
+<h3>Ready to send your message? <= button_tag "Go!" > </h3>
