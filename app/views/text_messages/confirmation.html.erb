@@ -3,4 +3,4 @@
 
 <p> Message to be send: <%= @message.content %>
 
-<h3>Ready to send your message? <= button_tag "Go!" > </h3>
+<h3>Ready to send your message? <%= button_to "Send!", send_sms_message_text_messages_path, :method => "post" %></h3>

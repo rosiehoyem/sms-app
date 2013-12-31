@@ -1,8 +1,0 @@
-Message to be sent: <%= @message.content %>
-
-<h2>Import Names and Phone Numbers</h2>
-<%= form_tag import_message_text_messages_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-

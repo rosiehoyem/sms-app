@@ -9,4 +9,18 @@ class TextMessage < ActiveRecord::Base
 	  end
 	end
 
+	def send_sms(message)
+		client = Twilio::REST::Client.new account_sid, auth_token
+		 
+		from = "+6122940689" # Your Twilio number
+
+		message.text_messages.each do |text_message|
+		  client.account.messages.create(
+		    :from => from,
+		    :to => text_message.phone_number,
+		    :body => "Hey #{text_message.firstname}, #{message}"
+		  ) 
+		end
+	end
+
 end
