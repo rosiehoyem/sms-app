@@ -5,8 +5,9 @@ SmsApp::Application.routes.draw do
       collection do
         get 'csv_upload'
         post 'import' 
-        get 'confirmation'
+        get 'import_confirmation'
         post 'send_sms'
+        get 'send_confirmation'
       end
     end
   end

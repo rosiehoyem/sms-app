@@ -6,10 +6,8 @@ class MessagesController < ApplicationController
 
 	def create
     @message = Message.new(message_params)
-
     respond_to do |format|
-      if @message.save
-      	
+      if @message.save	
         format.html { redirect_to csv_upload_message_text_messages_url(:message_id =>@message.id) } 
         format.json { render action: 'text_messages#csv_upload', status: :created, location: csv_upload_message_text_messages_url }
       else

@@ -6,17 +6,15 @@ class TextMessagesController < ApplicationController
 
   def import
     @message.text_messages.import(params[:file])
-    redirect_to confirmation_message_text_messages_url, notice: "Names and phone numbers imported."
+    redirect_to import_confirmation_message_text_messages_url, notice: "Names and phone numbers imported."
   end
 
-	def confirmation
+	def import_confirmation
   end
 
   def send_sms
-    client = Twilio::REST::Client.new(ENV["account_sid"], ENV["auth_token"])
-     
-    from = "+6122940689" # Your Twilio number
-
+    client = Twilio::REST::Client.new ENV["account_sid"], ENV["auth_token"]
+    from = ENV["twilio_number"]
     @message.text_messages.each do |text_message|
       client.account.messages.create(
         :from => from,
@@ -24,6 +22,10 @@ class TextMessagesController < ApplicationController
         :body => "Hey #{text_message.firstname}, #{@message.content}"
       ) 
     end
+    redirect_to send_confirmation_message_text_messages_url
+  end
+
+  def send_confirmation
   end
 
 	private
