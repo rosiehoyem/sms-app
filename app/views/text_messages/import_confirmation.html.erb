@@ -1,6 +1,6 @@
 <h1>Success!</h1>
-<p><%= @message.text_messages.count %> phone numbers have been successfully queued</p>
+<p><%= @message.text_messages.count %> phone numbers have been successfully queued.</p>
 
-<p> Message to be send: <%= @message.content %>
+<p> Message to be sent: " <%= @message.content %> "
 
-<h3>Ready to send your message? <%= button_to "Send!", send_sms_message_text_messages_path, :method => "post" %></h3>
+<%= button_to "Send your message!", send_sms_message_text_messages_path, :method => "post", class: "btn" %>

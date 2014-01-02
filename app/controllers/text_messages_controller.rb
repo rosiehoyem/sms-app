@@ -34,6 +34,6 @@ class TextMessagesController < ApplicationController
     end
 
     def text_message_params
-      params.require(:text_message).permit(:name, :phone, :message_id)
+      params.require(:text_message).permit(:name, :phone, :message_id, :text_message)
     end
 end

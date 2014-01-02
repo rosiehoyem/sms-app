@@ -1,10 +1,9 @@
-<h1>Send a Message</h1>
+<h2>1. Compose a message.</h2>
 
-Create a new message
 <%= form_for @message do |f| %>
 <%= f.label :content %>
 <%= f.text_field :content %>
-<%= f.submit 'Create Message'  %>
+<%= f.submit 'Create Message', class: "btn"  %>
 
 <% end %>
 

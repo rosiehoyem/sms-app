@@ -7,8 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+	  <div class="header">
+	    <ul class="nav nav-pills pull-right">
+	      <li class="active"><%= link_to "Home", root_path %></li>
+	      <li><a href="https://github.com/rosiehoyem/sms-app">GitHub Repository</a></li>
+	      <li><a href="#">Test Coverage</a></li>
+	    </ul>
+	    <h3 class="text-muted">SMS App</h3>
+	  </div>
+
+	  <div class="jumbotron">
+	    <h1>Send an SMS now.</h1>
+	    <p class="lead">Mobile Engagement with Twilio</p>
+	  </div>
 
 <%= yield %>
+
+	  <div class="footer">
+	    <p>&copy; Rosie Hoyem</p>
+	  </div>
+
+	</div> <!-- /container -->
 
 </body>
 </html>

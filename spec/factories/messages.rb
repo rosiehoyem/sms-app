@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :message do
-    content "MyString"
+    content "Text message content!"
   end
 end
