@@ -10,9 +10,9 @@
   <div class="container">
 	  <div class="header">
 	    <ul class="nav nav-pills pull-right">
-	      <li class="active"><%= link_to "Home", root_path %></li>
+	      <li><%= link_to "Home", root_path %></li>
 	      <li><a href="https://github.com/rosiehoyem/sms-app">GitHub Repository</a></li>
-	      <li><a href="#">Test Coverage</a></li>
+	      <li><a href="https://github.com/rosiehoyem/sms-app/tree/master/coverage">Test Coverage</a></li>
 	    </ul>
 	    <h3 class="text-muted">SMS App</h3>
 	  </div>
@@ -21,11 +21,18 @@
 	    <h1>Send an SMS now.</h1>
 	    <p class="lead">Mobile Engagement with Twilio</p>
 	  </div>
-
-<%= yield %>
-
+	  <div class="row">
+		  <div class="col-md-2"></div>
+		  	<div class="col-md-8">
+					<%= yield %>
+				</div>
+		  <div class="col-md-2"></div>
+		</div>
+		<div class="clearfix"></div>
 	  <div class="footer">
-	    <p>&copy; Rosie Hoyem</p>
+	  		<div class="pull-right">
+	    		<p>&copy; Rosie Hoyem</p>
+	    	</div>
 	  </div>
 
 	</div> <!-- /container -->

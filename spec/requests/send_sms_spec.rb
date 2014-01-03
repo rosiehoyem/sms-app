@@ -1,8 +1,8 @@
 describe "Send SMS" do
   it "uploads and parses a CSV file" do
-    sms = Factory(:sms)
+    text_message = Factory(:text_message)
     visit send_path
-    fill_in "Message", :with => "#{sms.firstname} test message"
+    fill_in "Message", :with => "#{text_message.firstname} test message"
     click_link "Find CSV File"
     select_file "../features/test_files/test.cvs"
     click_button "Upload CSV File"
@@ -13,7 +13,7 @@ describe "Send SMS" do
 
   it "does not save records with invalid phone numbers" do
     visit send_path
-    fill_in "Message", :with => "#{sms.firstname} test message"
+    fill_in "Content", :with => "test message"
     click_link "Find CSV File"
     select_file "../features/test_files/invalid-test.cvs"
     click_button "Upload CSV File"
