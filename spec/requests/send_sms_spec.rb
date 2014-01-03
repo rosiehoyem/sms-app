@@ -1,26 +1,37 @@
 describe "Send SMS" do
-  it "uploads and parses a CSV file" do
-    text_message = Factory(:text_message)
-    visit send_path
-    fill_in "Message", :with => "#{text_message.firstname} test message"
-    click_link "Find CSV File"
-    select_file "../features/test_files/test.cvs"
-    click_button "Upload CSV File"
-    current_path.should eq(root_path)
-    page.should have_content("Upload Sucessful. Ready to Send.")
-    last_email.to.should include(user.email)
+  it "creates a new message" do
+    visit root_path
+    fill_in "content", :with => "test message"
+    click_button "Create Message"
+    last_message.should eq("test message")
   end
 
-  it "does not save records with invalid phone numbers" do
-    visit send_path
-    fill_in "Content", :with => "test message"
-    click_link "Find CSV File"
-    select_file "../features/test_files/invalid-test.cvs"
-    click_button "Upload CSV File"
-    current_path.should eq(root_path)
-    page.should have_content("Invalid phone number.")
-    last_message.should be_nil
+  it "uploads and parses a CSV file"
+    @message = FactoryGirl.build(:message)
+    visit csv_upload_message_text_messages_url(:message_id =>@message.id)
+    click_button "Choose File"
+    select_file "../data/valid_csv.csv'"
+    click_button "Import"
+    current_path.should eq(import_confirmation_message_text_messages_url)
+    page.should have_content("Phone numbers uploaded: 2")
   end
+
+  it "integrate with Twilio's API to send a text message to all the phone numbers in that file"
+    @message = FactoryGirl.build(:message)
+    @text_message = @message.text_messages.build(firstname: "John", phone_number: "612")
+    visit import_confirmation_message_text_messages_url
+    click_button "Send!"
+    current_path.should eq(import_confirmation_message_text_messages_url)
+    page.should have_content("Phone numbers uploaded: 2")
+  end
+
+  it "sucessfully reproduces the message specified on the form"
+
+  it "sends the message to all valid entries in the CVS upload"  
+
+  it "sends the message prefixed with the recipients first name."  
+
+  it "after successfully sending all the text messages, the app should show a 'success' screen."
 
   it "reports when messages have been sent" do
     user = Factory(:user, :password_reset_token => "something", :password_reset_sent_at => 5.hour.ago)

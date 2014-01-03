@@ -3,8 +3,8 @@ require 'spec_helper'
 describe TextMessage do  
 
 	it "is invalid without a firstname" do
-		text_message = FactoryGirl.build(:text_message, first_name: nil)
-		expect(text_message).to have(1).errors_on(:first_name)
+		text_message = FactoryGirl.build(:text_message, firstname: nil)
+		expect(text_message).to have(1).errors_on(:firstname)
 	end
 	
 	it "is invalid without a valid 10-digit phone number" do
@@ -12,17 +12,12 @@ describe TextMessage do
 		expect(text_message).to have(1).errors_on(:phone_number)
 	end
   
-
-	it "accepts a CSV file upload and parses the file"
-
-	it "integrate with Twilio's API to send a text message to all the phone numbers in that file"
-
-	it "sucessfully reproduces the message specified on the form"
-
-	it "sends the message to all valid entries in the CVS upload"  
-
-	it "sends the message prefixed with the recipients first name."  
-
-	it "after successfully sending all the text messages, the app should show a 'success' screen."
+	it "accepts a CSV file upload and parses the file" do
+		file = Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/data/valid_csv.csv')))
+			CSV.foreach(file.path, headers: true) do |row|
+		    TextMessage.create! row.to_hash
+		  end
+		expect(TextMessage.all.count).to eq(2)
+	end
 
 end

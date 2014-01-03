@@ -13,12 +13,12 @@ class TextMessagesController < ApplicationController
   end
 
   def send_sms
-    client = Twilio::REST::Client.new ENV["account_sid"], ENV["auth_token"]
-    from = ENV["twilio_number"]
+    client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
+    from = ENV["TWILIO_NUMBER"]
     @message.text_messages.each do |text_message|
       client.account.messages.create(
         :from => from,
-        :to => text_message.phone_number,
+        :to => text_message.phone_number.gsub(/^(\+1)|[^0-9]+/,''),
         :body => "Hey #{text_message.firstname}, #{@message.content}"
       ) 
     end
