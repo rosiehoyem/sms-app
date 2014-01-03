@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
 
 	def new
   	@message = Message.new
-  	@text_message = @message.text_messages.build
   end
 
 	def create

@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe TextMessage do  
 
+	it "belongs to a message" do
+    t = TextMessage.reflect_on_association(:message)
+    expect(t.macro).to eq(:belongs_to)
+  end
+
 	it "is invalid without a firstname" do
 		text_message = FactoryGirl.build(:text_message, firstname: nil)
 		expect(text_message).to have(1).errors_on(:firstname)

@@ -1,7 +1,7 @@
-<h1>Success!</h1>
+<h1>Import success!</h1>
 <h4>Phone numbers uploaded: <%= @message.text_messages.count %> </h4>
 
-<h4> Send message <em>"Hey [Name], <%= @message.content %>"</em> to all numbers?</h4>
+<h4> Send message <em>"Hey [First Name], <%= @message.content %>"</em> to all numbers?</h4>
 <div class="pull-right">
 <%= button_to "Send!", send_sms_message_text_messages_path, :method => "post", class: "btn btn-primary" %>
 </div>
