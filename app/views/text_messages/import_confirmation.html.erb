@@ -1,9 +1,14 @@
 <h1>Import success!</h1>
-<h4>Phone numbers uploaded: <%= @message.text_messages.count %> </h4>
+<h4>Phone number(s) uploaded: <%= @message.text_messages.count %> </h4>
+<% if @status == "active" %>
+	<h4>Twilio Account Status: <strong><%= @status.upcase %></strong>.  Ready to go!</h4>
 
 <h4> Send message <em>"Hey [First Name], <%= @message.content %>"</em> to all numbers?</h4>
 <div class="pull-right">
 <%= button_to "Send!", send_sms_message_text_messages_path, :method => "post", class: "btn btn-primary" %>
 </div>
-<br>
-<br>
+<%else%>
+	<h4>Uh oh. There seems to be a problem with this Twilio Account. Visit your Twilio account page for more information.</h4>
+<%end%>
+<br />
+<br />

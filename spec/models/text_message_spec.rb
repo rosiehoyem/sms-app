@@ -26,3 +26,4 @@ describe TextMessage do
 	end
 
 end
+

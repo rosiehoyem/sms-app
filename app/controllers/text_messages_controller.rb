@@ -10,10 +10,15 @@ class TextMessagesController < ApplicationController
   end
 
 	def import_confirmation
+    client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
+    account = client.accounts.get(ENV["ACCOUNT_SID"])
+    from = ENV["TWILIO_NUMBER"]
+    @status = client.account.status
   end
 
   def send_sms
     client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
+    account = client.accounts.get(ENV["ACCOUNT_SID"])
     from = ENV["TWILIO_NUMBER"]
     @message.text_messages.each do |text_message|
       client.account.messages.create(

@@ -51,6 +51,21 @@ describe TextMessagesController do
       get :import_confirmation, message_id: message
       expect(assigns(:message)).to eq message
     end
+
+    describe "Twilio account status" do
+      before (:each) do
+        @client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
+        @account = @client.accounts.get(ENV["ACCOUNT_SID"])
+      end
+
+      it "is a trial account" do
+        expect(@account.type).to eq("Trial")
+      end
+
+      it "is active" do
+        expect(@account.status).to eq("active")
+      end
+    end
   end
 
   describe "POST send_sms" do
