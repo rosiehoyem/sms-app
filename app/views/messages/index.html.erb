@@ -12,7 +12,7 @@
 	  	<% @messages.each do |message| %>
 	    <tr>
 	      <td><%= message.date_sent %></td>
-	      <td><%= message.content %></td>
+	      <td>"Hey [First Name], <%= message.content %></td>
 	      <% message.text_messages.all.each do |text_message| %>
 	      	<td><%= text_message.firstname %>, <%=text_message.phone_number%></td>
 	      <%end%>

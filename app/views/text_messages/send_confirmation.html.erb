@@ -1,4 +1,10 @@
-<h1>Your work is done here.</h1>
-<h3>Message status: <%= @message.status.upcase %></h3>
-<br />
-<p><%= link_to "Create another message.", root_path %> | <%=link_to "View the status of all messages.", messages_path %></p>
+<div class="row">
+  <div class="col-md-2"></div>
+  	<div class="col-md-8">
+  		<h1>Your work is done here.</h1>
+			<h3>Message status: <%= @message.status.upcase %></h3>
+			<br />
+			<p><%= link_to "Create another message.", root_path %> | <%=link_to "View the status of all messages.", messages_path %></p>
+		</div>
+  <div class="col-md-2"></div>
+</div>

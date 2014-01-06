@@ -1,19 +1,27 @@
-<h3>Great! Your message to be sent: </h3>
-	<em>"Hey [First Name], <%= @message.content %>"</em>
+<div class="row">
+  <div class="col-md-2"></div>
+  	<div class="col-md-8">
+  		<h3>Great! Your message to be sent: </h3>
+			<em>"Hey [First Name], <%= @message.content %>"</em>
 
-<h2>2. Import names and phone numbers.*</h2>
-<%= form_tag import_message_text_messages_path, html: {class: "form-horizontal"}, multipart: true do %>
-	<div class="form-group">
-	  <%= file_field_tag :file, class: "input-lg" %>
-		<p class="help-block"><em>*File must be a valid CSV file with field headers "firstname" and "phone_number" to properly upload.</em></p>
-	</div>
-	<div class="form-group">
-		<div class="pull-right">
-  	<%= submit_tag "Import", class: "btn btn-primary" %>
-  	</div>
-	</div>
-<% end %>
-<br>
-<br>
+		<h2>2. Import names and phone numbers.*</h2>
+		<%= form_tag import_message_text_messages_path, html: {class: "form-horizontal"}, multipart: true do %>
+			<div class="form-group">
+				<div id="file_upload">
+			  <%= file_field_tag :file, class: "input-lg" %>
+			</div>
+				<p class="help-block"><em>*File must be a valid CSV file with field headers "firstname" and "phone_number" to properly upload.</em></p>
+			</div>
+			<div class="form-group">
+				<div class="pull-right">
+		  	<%= submit_tag "Import", class: "btn btn-primary" %>
+		  	</div>
+			</div>
+		<% end %>
+		<br />
+		<br />
+		</div>
+  <div class="col-md-2"></div>
+</div>
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SmsApp</title>
+  <title>Twilio Textr</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -11,27 +11,22 @@
 	  <div class="header">
 	    <ul class="nav nav-pills pull-right">
 	      <li><%= link_to "Home", root_path %></li>
-	      <li><a href="https://github.com/rosiehoyem/sms-app">GitHub Repository</a></li>
-	      <li><a href="https://github.com/rosiehoyem/sms-app/tree/master/coverage">Test Coverage</a></li>
+	      <li><%= link_to "All Sent Messages", messages_path %></li>
 	    </ul>
-	    <h3 class="text-muted">SMS App</h3>
+	    <h3 class="text-muted">Twilio Textr</h3>
 	  </div>
 
 	  <div class="jumbotron">
 	    <h1>Send an SMS now.</h1>
 	    <p class="lead">Mobile Engagement with Twilio</p>
 	  </div>
-	  <div class="row">
-		  <div class="col-md-2"></div>
-		  	<div class="col-md-8">
+
 					<%= yield %>
-				</div>
-		  <div class="col-md-2"></div>
-		</div>
+
 		<div class="clearfix"></div>
 	  <div class="footer">
 	  		<div class="pull-right">
-	    		<p>&copy; Rosie Hoyem</p>
+	    		<p><a href="https://github.com/rosiehoyem/sms-app">GitHub Repository</a>  |  <a href="https://github.com/rosiehoyem/sms-app/tree/master/coverage">Test Coverage</a>  |  &copy; Rosie Hoyem</p>
 	    	</div>
 	  </div>
 

@@ -1,6 +1,25 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/rosannehoyem/Development/code/code-challenges/sms-app/app/models/message.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/Users/rosannehoyem/Development/code/code-challenges/sms-app/app/models/text_message.rb": [
         1,
         1,
@@ -15,18 +34,66 @@
         null,
         null
       ],
-      "/Users/rosannehoyem/Development/code/code-challenges/sms-app/app/models/message.rb": [
+      "/Users/rosannehoyem/Development/code/code-challenges/sms-app/app/controllers/text_messages_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
         1,
         1,
         1,
+        null,
         null,
         1,
         0,
         null,
+        null
+      ],
+      "/Users/rosannehoyem/Development/code/code-challenges/sms-app/app/controllers/application_controller.rb": [
+        1,
         null,
+        null,
+        1,
         null
       ]
     },
-    "timestamp": 1389025675
+    "timestamp": 1389047785
   }
 }
