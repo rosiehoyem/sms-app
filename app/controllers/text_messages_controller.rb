@@ -31,6 +31,12 @@ class TextMessagesController < ApplicationController
   end
 
   def send_confirmation
+    client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
+    account = client.accounts.get(ENV["ACCOUNT_SID"])
+    @message.twilio_sid = client.account.messages.list.last.sid
+    @message.date_sent = client.account.messages.list.last.date_sent
+    @message.status = client.account.messages.list.last.status
+    @message.save
   end
 
 	private

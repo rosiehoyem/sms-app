@@ -1,5 +1,4 @@
-<h1>Done.</h1>
-<h4>You successfully queued <em>"Hey [Name], <%= @message.content %>"</em> to <%= @message.text_messages.count %> phone numbers.</h4>
-<p>Check on the status of all messages.</p>
-<br>
-<p><%= link_to "Create another text message.", root_path %>
+<h1>Your work is done here.</h1>
+<h3>Message status: <%= @message.status.upcase %></h3>
+<br />
+<p><%= link_to "Create another message.", root_path %> | <%=link_to "View the status of all messages.", messages_path %></p>

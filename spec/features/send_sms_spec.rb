@@ -52,6 +52,11 @@ feature "Send SMS" do
 
   it "after successfully sending all the text messages, the app should show a 'success' screen."
 
-  it "reports when messages have been sent" 
+  it "reports when messages have been sent" do
+    visit import_confirmation_message_text_messages_url
+    click_button "Send!"
+    current_path.should eq(send_confirmation_message_text_messages_url)
+    page.should have_content("Done.")
+  end
 
 end

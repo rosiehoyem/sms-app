@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106180025) do
+ActiveRecord::Schema.define(version: 20140106190547) do
 
   create_table "messages", force: true do |t|
     t.string   "content"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140106180025) do
     t.datetime "updated_at"
     t.string   "twilio_sid"
     t.string   "status"
+    t.datetime "date_sent"
   end
 
   create_table "text_messages", force: true do |t|

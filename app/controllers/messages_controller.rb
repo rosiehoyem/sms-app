@@ -1,6 +1,19 @@
 class MessagesController < ApplicationController
 
-	def new
+	def index
+    @messages = Message.all
+    @messages.each do |message|
+      if message.status != "sent"
+        client = Twilio::REST::Client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
+        account = client.accounts.get(ENV["ACCOUNT_SID"])
+        message.status = client.account.messages.get(message.twilio_sid).status
+        message.date_sent = client.account.messages.get(message.twilio_sid).date_sent
+        message.save
+      end
+    end
+  end
+
+  def new
   	@message = Message.new
   end
 

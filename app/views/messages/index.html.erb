@@ -1,0 +1,23 @@
+<h3>All Messages</h3>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th>Time Sent</th>
+	      <th>Message Content</th>
+	      <th>Recipients</th>
+	      <th>Status</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @messages.each do |message| %>
+	    <tr>
+	      <td><%= message.date_sent %></td>
+	      <td><%= message.content %></td>
+	      <% message.text_messages.all.each do |text_message| %>
+	      	<td><%= text_message.firstname %>, <%=text_message.phone_number%></td>
+	      <%end%>
+	      <td><%= message.status %></td>
+	    </tr>
+	    <% end %>
+	  </tbody>
+	</table>
