@@ -8,5 +8,4 @@ class TextMessage < ActiveRecord::Base
 	    TextMessage.create! row.to_hash
 	  end
 	end
-
 end
